@@ -27,7 +27,7 @@ botFunctions.extractDirFiles.forEach((command) => {
 
 //NOTICE IN CONSOLE WHEN BOT IS READY
 client.on("ready", (msg) => {
-  console.log(`${client.user.tag} is ready!`);
+  console.log(`${client.user.tag} is ready!!`);
 });
 
 client.on("message", (msg) => {
@@ -66,5 +66,4 @@ client.on("message", (msg) => {
     return cmd.run(client, msg, args);
   }
 });
-
 client.login(process.env.DISCORD_TOKEN);
