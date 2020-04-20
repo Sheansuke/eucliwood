@@ -4,7 +4,7 @@
   "description": "Discord bot create by Sheansuke#0307",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
+    "start": "node index.js",
     "dev": "nodemon -e js --exec \"npm start\""
   },
   "keywords": [],
