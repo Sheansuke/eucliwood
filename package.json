@@ -4,7 +4,7 @@
   "description": "Discord bot create by Sheansuke#0307",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node .",
     "dev": "nodemon -e js --exec \"npm start\""
   },
   "keywords": [],
@@ -13,12 +13,11 @@
   "dependencies": {
     "@types/ws": "^7.2.4",
     "discord.js": "^12.2.0",
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "@types/node": "^13.11.1",
+    "express": "^4.17.1",
+    "@types/node": "^13.13.1",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.3",
     "typescript": "^3.8.3"
-  }
+  },
+  "devDependencies": {}
 }
