@@ -11,13 +11,18 @@
   "author": "Jean Suero",
   "license": "MIT",
   "dependencies": {
-    "@types/ws": "^7.2.4",
-    "discord.js": "^12.2.0",
-    "express": "^4.17.1",
+    "@google-cloud/storage": "^4.7.0",
     "@types/node": "^13.13.1",
+    "@types/ws": "^7.2.4",
+    "dialogflow": "^1.2.0",
+    "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "moment-timezone": "^0.5.28",
+    "node-wit": "^5.0.0",
     "nodemon": "^2.0.3",
-    "typescript": "^3.8.3"
+    "uuid": "^7.0.3",
+    "wit-ai": "^4.1.2"
   },
   "devDependencies": {}
 }
