@@ -8,7 +8,7 @@
     "dev": "nodemon -e js --exec \"npm start\""
   },
   "keywords": [],
-  "author": "Jean Suero",
+  "author": "https://github.com/Sheansuke",
   "license": "MIT",
   "dependencies": {
     "@google-cloud/storage": "^4.7.0",
