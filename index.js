@@ -37,13 +37,19 @@ client.on("message", (msg) => {
       ? msg.content.slice(prefix.length).trim()
       : msg.content;
     chatbot(args).then((data) => {
-      const userMessage = data.query;
-      const response = data.response;
-      const intent = data.intent;
+      try {
+        // const userMessage = data.query;
+        const response = data.response;
+        const intent = data.intent;
 
-      const cmd = client.commands.get(intent);
+        const cmd = client.commands.get(intent);
 
-      return cmd ? cmd.run(client, msg, response) : msg.channel.send(response);
+        return cmd
+          ? cmd.run(client, msg, response)
+          : msg.channel.send(response);
+      } catch (error) {
+        console.log(error);
+      }
     });
   }
 });
