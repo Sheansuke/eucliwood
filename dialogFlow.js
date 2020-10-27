@@ -15,7 +15,7 @@ module.exports = {
 
     // Create a new session
     const sessionClient = new dialogflow.SessionsClient();
-    const sessionPath = sessionClient.sessionPath(
+    const sessionPath =  await sessionClient.sessionPath(
       process.env.DIALOGFLOW_PROJECTID,
       sessionId
     );
