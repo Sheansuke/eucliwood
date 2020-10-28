@@ -37,7 +37,7 @@ client.on("message", (msg) => {
   const startPrefix = msg.content.startsWith(prefix);
 
   // SI QUIERE PERMITIR QUE EL BOT HABLE SIN USAR EL PREFIJO EN UN CANAL AÑADALO AQUI
-  const channelEucliwood = msg.channel.name == "eucliwood";
+  const channelEucliwood =/eucliwood/.test(msg.channel.name) 
 
   if (msg.author.bot) return;
 
