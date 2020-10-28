@@ -1,5 +1,5 @@
 //ENVIROMENT
-const config = require("dotenv").config();
+ require("dotenv").config();
 
 const dialogflow = require("dialogflow");
 const uuid = require("uuid");
@@ -11,40 +11,43 @@ const uuid = require("uuid");
 module.exports = {
   chatBot: async function (message) {
     try {
-      // A unique identifier for the given session
+      // UN IDENTIFICADOR UNICO PARA CADA SECCION
       const sessionId = uuid.v4();
 
-      // Create a new session
+      // CREA LA NUEVA SECCION
       const sessionClient = new dialogflow.SessionsClient();
       const sessionPath =  sessionClient.sessionPath(
         process.env.DIALOGFLOW_PROJECTID,
         sessionId
       );
 
-      // The text query request.
+      // ES EL QUERY ENVIADO A DIALOGFLOW
       const request = {
         session: sessionPath,
         queryInput: {
           text: {
-            // The query to send to the dialogflow agent
+            // MENSAJE DEL USUARIO
             text: message,
-            // The language used by the client (en-US)
+            // IDIOMA EN EL QUE SE ENVIA
             languageCode: "es-ES",
           },
         },
       };
 
-      // Send request and log result
+      // SE ENVIA EL QUERY Y SE REGISTRA EN CONSOLA LA REPUESTA DE DIALOGFLOW
       const responses = await sessionClient.detectIntent(request);
-      console.log("Detected intent");
+
+      console.log("Detected intent...");
       const result = responses[0].queryResult;
       console.log(`  Query: ${result.queryText}`);
       console.log(`  Response: ${result.fulfillmentText}`);
+
       if (result.intent) {
         console.log(`  Intent: ${result.intent.displayName}`);
       } else {
         console.log(`  No intent matched.`);
       }
+
       return {
         query: result.queryText,
         response: result.fulfillmentText,
