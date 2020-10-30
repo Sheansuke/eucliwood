@@ -34,7 +34,7 @@ client.on("ready", () => {
   client.user
   .setActivity("Genshin Impact", { type: "PLAYING" })
   .then((presence) =>
-    console.log(`Activity set to ${presence.activities[0].name}`)
+    console.log(`Activity set to: ${presence.activities[0].name}`)
   )
   .catch(console.error);
 });
