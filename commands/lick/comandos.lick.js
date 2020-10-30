@@ -10,7 +10,7 @@ module.exports = {
     const embed = new Discord.MessageEmbed();
     embed.setColor("RANDOM");
     embed.setDescription(
-      `**${message.author.username}** lamio a **${usuario.user.username} o///o **`
+      `**${message.author.username}** lamio a **${usuario.user.username}**  o///o `
     );
     embed.setImage(data);
     return message.channel.send(embed);
