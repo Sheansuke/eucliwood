@@ -29,16 +29,26 @@ botFunctions.extractDirFiles.forEach((command) => {
 // NOTIFICA CUANDO EL BOT ENCIENDE
 client.on("ready", () => {
   console.log(`${client.user.tag} is ready!`);
+
+  // MUESTRA AL BOT HACIENDO LA ACTIVIDAD ELEGIDA
+  client.user
+  .setActivity("Genshin Impact", { type: "PLAYING" })
+  .then((presence) =>
+    console.log(`Activity set to ${presence.activities[0].name}`)
+  )
+  .catch(console.error);
 });
+
+
 
 // OPTIENE Y PROCESA LAS ENTRADAS DE LOS USUARIOS
 client.on("message", (msg) => {
-  console.log(msg)
+  console.log(msg);
   // PREFIJO BAJO EL QUE DEBE INICIAR CADA FRASE DICHA AL BOT
   const startPrefix = msg.content.startsWith(prefix);
 
   // SI QUIERE PERMITIR QUE EL BOT HABLE SIN USAR EL PREFIJO EN UN CANAL AÑADALO AQUI
-  const channelEucliwood =/eucliwood/gi.test(msg.channel.name) 
+  const channelEucliwood = /eucliwood/gi.test(msg.channel.name);
 
   if (msg.author.bot) return;
 
