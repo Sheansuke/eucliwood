@@ -33,6 +33,7 @@ client.on("ready", () => {
 
 // OPTIENE Y PROCESA LAS ENTRADAS DE LOS USUARIOS
 client.on("message", (msg) => {
+  console.log(msg)
   // PREFIJO BAJO EL QUE DEBE INICIAR CADA FRASE DICHA AL BOT
   const startPrefix = msg.content.startsWith(prefix);
 
