@@ -1,6 +1,5 @@
 //IMPORT CLIENT
 const Discord = require("discord.js");
-const client = new Discord.Client();
 
 module.exports = {
   command: "comandos.hug",

@@ -1,6 +1,5 @@
 //IMPORT CLIENT
 const Discord = require("discord.js");
-const client = new Discord.Client();
 const translate = require("@vitalets/google-translate-api");
 
 module.exports = {
