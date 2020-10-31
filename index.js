@@ -31,19 +31,21 @@ client.on("ready", () => {
   console.log(`${client.user.tag} is ready!`);
 
   // MUESTRA AL BOT HACIENDO LA ACTIVIDAD ELEGIDA
+  /* LA ACTIVIDAD SE EXTRAE DEL .ENV:
+  LOCAL = En Mantenimiento
+  HEROKU = (cualquier actividad que se desee poner)
+  */
+
   client.user
-  .setActivity("Genshin Impact", { type: "PLAYING" })
-  .then((presence) =>
-    console.log(`Activity set to ${presence.activities[0].name}`)
-  )
-  .catch(console.error);
+    .setActivity(process.env.SET_ACTIVITY, { type: "PLAYING" })
+    .then((presence) =>
+      console.log(`Activity set to ${presence.activities[0].name}`)
+    )
+    .catch(console.error);
 });
-
-
 
 // OPTIENE Y PROCESA LAS ENTRADAS DE LOS USUARIOS
 client.on("message", (msg) => {
-  console.log(msg);
   // PREFIJO BAJO EL QUE DEBE INICIAR CADA FRASE DICHA AL BOT
   const startPrefix = msg.content.startsWith(prefix);
 
@@ -62,6 +64,9 @@ client.on("message", (msg) => {
       try {
         // const userMessage = data.query;
 
+        // LA DEVOLUCION TOTAL DE LOS DATOS DE DIALOGFLOW
+        const totalResponse = data.totalResponse;
+
         // RESPUESTA DEL BOT DESDE DIALOGFLOW
         const response = data.response;
 
@@ -75,7 +80,7 @@ client.on("message", (msg) => {
         // EVALUA SI SE OPTUVO UN COMANDO PARA EJECUTARLO DE LO CONTRARIO, DARA UNA REPUESTA DE DIALOGFLOW
         // Esto permite que pueda match intenciones que no sean comandos y responder conforme a ellas
         return cmd
-          ? cmd.run(client, msg, response)
+          ? cmd.run(client, msg, response, totalResponse)
           : msg.channel.send(response);
       } catch (error) {
         console.log(error);
@@ -90,3 +95,13 @@ client.on("message", (msg) => {
 // // }
 
 client.login(process.env.DISCORD_TOKEN);
+
+// const traducir = "traduce";
+// const preposicion = "al";
+// const idioma = "ingles";
+
+// const regex = new RegExp(`\\b${traducir}|${preposicion}|${idioma}\\b`,"gi")
+
+// const result = "traduce hola al ingles traduce".replace(regex,"")
+
+// console.log(result)
