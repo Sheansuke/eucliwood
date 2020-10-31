@@ -52,6 +52,7 @@ module.exports = {
         query: result.queryText,
         response: result.fulfillmentText,
         intent: result.intent.displayName,
+        totalResponse: result
       };
     } catch (error) {
       console.log(error);
