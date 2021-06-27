@@ -1,6 +1,7 @@
 //IMPORT CLIENT
 const Discord = require("discord.js");
-const translate = require("@vitalets/google-translate-api");
+const idiomaAbreviations = require("./idiomaAbrevations.js").idiomaAbreviations;
+const fetch = require("node-fetch");
 
 module.exports = {
   command: "comandos.traducir",
@@ -23,17 +24,29 @@ module.exports = {
     );
     const messageToTranslate = userMessage.replace(regex, "");
 
-    translate(messageToTranslate, { to: "en" })
-      .then((res) => {
+    await fetch("https://libretranslate.com/translate", {
+      method: "POST",
+      body: JSON.stringify({
+        q: messageToTranslate,
+        source: "en",
+        target: idiomaAbreviations(idioma),
+      }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then(async (res) => {
+        const translate = await res.json();
         embed.setColor("RANDOM");
         embed.setTitle(`**Traduccion de:**  ${messageToTranslate}`);
-        embed.setDescription(`${res.text}`);
+        embed.setDescription(`${translate.translatedText}`);
         return message.channel.send(embed);
       })
       .catch((err) => {
         console.error(err);
       });
-
-
   },
 };
+
+// embed.setColor("RANDOM");
+// embed.setTitle(`**Traduccion de:**  ${messageToTranslate}`);
+// embed.setDescription(`${res.text}`);
+// return message.channel.send(embed);

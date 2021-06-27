@@ -9,7 +9,7 @@ module.exports = {
     .map((d) => {
       const file = fs
         .readdirSync(`./commands/${d}`)
-        .filter((file) => file.endsWith(".js"));
+        .filter((file) => file.startsWith("comandos"));
 
       return `./commands/${d}/${file}`;
     }),
