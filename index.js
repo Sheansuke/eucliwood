@@ -35,7 +35,6 @@ client.on("ready", () => {
   LOCAL = En Mantenimiento
   HEROKU = (cualquier actividad que se desee poner)
   */
-
   client.user
     .setActivity(process.env.SET_ACTIVITY, { type: "PLAYING" })
     .then((presence) =>
@@ -89,19 +88,4 @@ client.on("message", (msg) => {
   }
 });
 
-// if (cmd) {
-// //   //EXECUTE NORMAL COMMANDS
-// //   return cmd.run(client, msg, args);
-// // }
-
 client.login(process.env.DISCORD_TOKEN);
-
-// const traducir = "traduce";
-// const preposicion = "al";
-// const idioma = "ingles";
-
-// const regex = new RegExp(`\\b${traducir}|${preposicion}|${idioma}\\b`,"gi")
-
-// const result = "traduce hola al ingles traduce".replace(regex,"")
-
-// console.log(result)
