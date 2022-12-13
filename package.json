@@ -17,7 +17,7 @@
     "dialogflow": "^1.2.0",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "moment-timezone": "^0.5.28",
     "node-fetch": "^2.6.1",
     "node-forge": "^0.10.0",
